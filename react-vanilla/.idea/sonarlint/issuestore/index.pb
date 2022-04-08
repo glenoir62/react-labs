@@ -5,8 +5,6 @@ D
 my-app/src/index.css,8/c/8cf2a54a6e04ed316bf5a9f4e2940115b1224dfe
 A
 my-app/my-app.iml,9/2/9261aedc9ea12004fc45238ee41f1b7ef0767024
-H
-my-app/package-lock.json,2/9/29f26c5b7477421bfbacfc70ab42094d9898e4df
 @
 my-app/README.md,c/4/c46e4e9d189721e177f72e4ced4b3df7c28f57ee
 C
