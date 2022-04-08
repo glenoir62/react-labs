@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Header, MovieList, MovieDetails, Loading} from './components';
+import { Header, MovieList, MovieDetails, Loading, SearchBar } from './components';
+
 import dataMovies from "./data";
 import * as axios from 'axios';
 import apiMovie from './conf/api.movie';
@@ -27,7 +28,7 @@ class App extends Component {
                 }));
                 this.updateMovies(movies);
             })
-            . catch ( err => console.log(err));
+            .catch ( err => console.log(err));
     }
 
     updateMovies = (movies) => {
@@ -37,11 +38,12 @@ class App extends Component {
         })
     }
 
-
     render() {
         return (
             <div className="App d-flex flex-column">
                 <Header />
+                <SearchBar updateMovies={ this.updateMovies } />
+
                 { this.state.loaded ? (
                     <div className="d-flex flex-row flex-fill pt-4 p-2" >
                         <MovieList
