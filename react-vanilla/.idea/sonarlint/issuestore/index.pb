@@ -43,8 +43,6 @@ H
 movies/public/index.html,4/f/4fb0c57d31a8882abdcb1f2a71ca105e38eb9c90
 D
 movies/src/index.css,b/6/b61534610b32a2cfa47c50e63966ecc0aa812f7d
-F
-movies/src/App.test.js,b/a/bae7359e566b87de36ee71b0b83c3522a44975e4
 V
 &movies/src/components/utils/Loading.js,4/0/4077a3a10adb9e7afabac0bba530419980224532
 H
