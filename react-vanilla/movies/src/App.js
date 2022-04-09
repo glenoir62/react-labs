@@ -38,6 +38,12 @@ class App extends Component {
         })
     }
 
+    updateSelectedMovie = (index) => {
+        this.setState({
+            selectedMovie: index
+        })
+    }
+
     render() {
         return (
             <div className="App d-flex flex-column">

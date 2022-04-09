@@ -31,8 +31,6 @@ M
 movies/src/reportWebVitals.js,f/f/ff382668806ce847fb879d10f1b18b048c0f4d2f
 H
 movies/public/robots.txt,2/1/2199049ba14d6c7160dd7eaecd67f7f6b51a1ed2
-C
-movies/src/logo.svg,8/6/86d31ae1dc166350b6b2cd64dc38ddee0e34dc2d
 A
 movies/.gitignore,4/9/49112d63fd5536fb933f7b9449a45e6233970804
 K
@@ -41,3 +39,15 @@ H
 movies/src/setupTests.js,b/3/b3969bd51ff1ad290d643b7ff6d123d9b7419fdd
 @
 movies/README.md,9/c/9ca6b9012457047182acc97747be7397778d27c0
+H
+movies/public/index.html,4/f/4fb0c57d31a8882abdcb1f2a71ca105e38eb9c90
+D
+movies/src/index.css,b/6/b61534610b32a2cfa47c50e63966ecc0aa812f7d
+F
+movies/src/App.test.js,b/a/bae7359e566b87de36ee71b0b83c3522a44975e4
+V
+&movies/src/components/utils/Loading.js,4/0/4077a3a10adb9e7afabac0bba530419980224532
+H
+my-app/package-lock.json,2/9/29f26c5b7477421bfbacfc70ab42094d9898e4df
+L
+movies/src/conf/api.movie.js,d/a/dacd9834a1551eec6ce7d1bf16562fbeb062f93f
