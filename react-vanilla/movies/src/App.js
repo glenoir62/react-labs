@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
-import { Header } from './components';
+import React, {Component} from 'react';
+import {Header} from './components';
 import Films from './features/films';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+
+import Favoris from './features/favoris';
 
 import dataMovies from "./data";
 import * as axios from 'axios';
@@ -19,8 +22,8 @@ class App extends Component {
 
     componentDidMount() {
         apiMovie.get('/discover/movie')
-            .then( response => response.data.results )
-            .then( moviesApi => {
+            .then(response => response.data.results)
+            .then(moviesApi => {
                 const movies = moviesApi.map(m => ({
                     img: 'https://image.tmdb.org/t/p/w500' + m.poster_path,
                     title: m.title,
@@ -29,7 +32,7 @@ class App extends Component {
                 }));
                 this.updateMovies(movies);
             })
-            .catch ( err => console.log(err));
+            .catch(err => console.log(err));
     }
 
     updateMovies = (movies) => {
@@ -45,20 +48,36 @@ class App extends Component {
         })
     }
 
+
     render() {
         return (
-            <div className="App d-flex flex-column" >
-                <Header />
-                <Films
-                    loaded={ this.state.loaded }
-                    updateMovies={ this.updateMovies }
-                    updateSelectedMovie={ this.updateSelectedMovie }
-                    movies={ this.state.movies }
-                    selectedMovie={ this.state.selectedMovie }
-                />
-            </div>
+            <Router>
+                <div className="App d-flex flex-column">
+                    <Header/>
+                    <Routes>
+                        <Route path="/films"  element={
+
+                                <Films
+                                    loaded={this.state.loaded}
+                                    updateMovies={this.updateMovies}
+                                    updateSelectedMovie={this.updateSelectedMovie}
+                                    movies={this.state.movies}
+                                    selectedMovie={this.state.selectedMovie}
+                                />
+
+                        }/>
+                        <Route path="/favoris" element={Favoris}/>
+                        <Route
+                            path="/"
+                            element={<Navigate to="/films"  />}
+                        />
+                    </Routes>
+                </div>
+            </Router>
         );
+
     }
 }
+
 
 export default App;
