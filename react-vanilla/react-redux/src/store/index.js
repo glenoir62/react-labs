@@ -2,7 +2,7 @@ import * as reducers from './reducers';
 import { combineReducers } from 'redux';
 import { createStore } from 'redux';
 
-const todoAppReducer = combineReducers(reducers);
-const store = createStore(todoAppReducer);
+const todosReducer = combineReducers(reducers)
+const store = createStore(todosReducer);
 
 export default store;
