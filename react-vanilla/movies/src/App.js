@@ -16,7 +16,8 @@ class App extends Component {
         this.state = {
             movies: null,
             selectedMovie: 0,
-            loaded: false
+            loaded: false,
+            favoris: []
         }
     }
 
@@ -48,6 +49,20 @@ class App extends Component {
         })
     }
 
+    addFavori = title => {
+        const film = {...this.state.movies.find( m => m.title === title )};
+        this.setState(state => ({
+            favoris: [...this.state.favoris, film]
+        }));
+    }
+
+    removeFavori = title => {
+        const index = this.state.favoris.findIndex( f => f.title === title );
+        this.setState(state => ({
+            favoris: state.favoris.filter((_, i) => i !== index)
+        }));
+    }
+
 
     render() {
         return (
@@ -56,15 +71,16 @@ class App extends Component {
                     <Header/>
                     <Routes>
                         <Route path="/films"  element={
-
-                                <Films
-                                    loaded={this.state.loaded}
-                                    updateMovies={this.updateMovies}
-                                    updateSelectedMovie={this.updateSelectedMovie}
-                                    movies={this.state.movies}
-                                    selectedMovie={this.state.selectedMovie}
-                                />
-
+                            <Films
+                                loaded={ this.state.loaded }
+                                updateMovies={ this.updateMovies }
+                                updateSelectedMovie={ this.updateSelectedMovie }
+                                movies={ this.state.movies }
+                                selectedMovie={ this.state.selectedMovie }
+                                addFavori={ this.addFavori }
+                                removeFavori={ this.removeFavori }
+                                favoris={ this.state.favoris.map( f => f.title ) }
+                            />
                         }/>
                         <Route path="/favoris" element={Favoris}/>
                         <Route

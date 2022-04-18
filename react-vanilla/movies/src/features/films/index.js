@@ -10,7 +10,10 @@ export default (props) => {
                 <div className="d-flex flex-row flex-fill pt-4 p-2" >
                     <MovieList
                         movies={props.movies}
-                        updateSelectedMovie={props.updateSelectedMovie} />
+                        updateSelectedMovie={props.updateSelectedMovie}
+                        favoris={ props.favoris }
+                        removeFavori={ props.removeFavori }
+                        addFavori={ props.addFavori } />
                     <MovieDetails movie={props.movies[props.selectedMovie]} />
                 </div>
             ) : (

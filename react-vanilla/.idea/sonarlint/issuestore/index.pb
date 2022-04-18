@@ -49,3 +49,17 @@ H
 my-app/package-lock.json,2/9/29f26c5b7477421bfbacfc70ab42094d9898e4df
 L
 movies/src/conf/api.movie.js,d/a/dacd9834a1551eec6ce7d1bf16562fbeb062f93f
+B
+movies/src/data.js,c/4/c4c2362d93c4fa458c945939a7cbf090ee0e37ba
+C
+movies/src/index.js,e/d/eddb6854871a3ff65a7916bbfb834a757a3d5773
+C
+movies/src/logo.svg,8/6/86d31ae1dc166350b6b2cd64dc38ddee0e34dc2d
+N
+movies/src/components/index.js,d/c/dcb65ba6195e6ede893fec7ce7447a8e808ff764
+l
+<movies/src/features/films/components/search-bar/SearchBar.js,3/6/36cce64805315e1f6a5785dd2dded893cb0bcaa7
+C
+movies/package.json,a/3/a3fd11d84b284d690f2d6fd1f91ad597f68cfaf7
+H
+movies/package-lock.json,a/9/a96ae659a72ef7ff7b464ce6d61b722fe857691c
