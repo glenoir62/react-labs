@@ -4,6 +4,7 @@ import Films from './features/films';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
 import Favoris from './features/favoris';
+import apiFirebase from './conf/api.firebase';
 
 import dataMovies from "./data";
 import * as axios from 'axios';
@@ -34,12 +35,26 @@ class App extends Component {
                 this.updateMovies(movies);
             })
             .catch(err => console.log(err));
+
+        apiFirebase.get('favoris.json')
+            .then( response => {
+                let favoris = response.data ? response.data : [];
+                this.updateFavori(favoris)
+            })
+            .catch(err => console.log(err));
     }
 
     updateMovies = (movies) => {
         this.setState({
             movies,
-            loaded: true
+            loaded: this.state.favoris ? true : false
+        })
+    }
+
+    updateFavori = (favoris) => {
+        this.setState({
+            favoris,
+            loaded: this.state.movies ? true : false
         })
     }
 
@@ -50,19 +65,22 @@ class App extends Component {
     }
 
     addFavori = title => {
-        const film = {...this.state.movies.find( m => m.title === title )};
+        const film = { ...this.state.movies.find(m => m.title === title) };
         this.setState(state => ({
             favoris: [...this.state.favoris, film]
-        }));
+        }), this.saveFavoris);
     }
 
     removeFavori = title => {
-        const index = this.state.favoris.findIndex( f => f.title === title );
+        const index = this.state.favoris.findIndex(f => f.title === title);
         this.setState(state => ({
             favoris: state.favoris.filter((_, i) => i !== index)
-        }));
+        }), this.saveFavoris);
     }
 
+    saveFavoris = () => {
+        apiFirebase.put('favoris.json', this.state.favoris);
+    }
 
     render() {
         return (
@@ -82,7 +100,13 @@ class App extends Component {
                                 favoris={ this.state.favoris.map( f => f.title ) }
                             />
                         }/>
-                        <Route path="/favoris" element={Favoris}/>
+                        <Route path="/favoris" element={
+                            <Favoris
+                                loaded={ this.state.loaded }
+                                favoris={this.state.favoris}
+                                removeFavori={this.removeFavori}
+                            />
+                        }/>
                         <Route
                             path="/"
                             element={<Navigate to="/films"  />}
